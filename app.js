@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+const axios = require('axios');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -31,6 +32,7 @@ app.use('*', (req, res, next) => {
     Helper.showNotFoundResponse(res);
 })
 
+
 /*
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -49,4 +51,17 @@ app.use(function (err, req, res, next) {
 });
 */
 
+// prevent idling
+function startKeepAlive() {
+    setInterval(() => {
+        axios.get('https://ap-webserver.herokuapp.com')
+            .then(response => {
+                console.log('res', response.data.data);
+            })
+            .catch(error => {
+                console.log('err', error.response.data);
+            });
+    }, 20 * 60 * 1000);
+}
+startKeepAlive();
 module.exports = app;

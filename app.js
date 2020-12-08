@@ -63,5 +63,5 @@ function startKeepAlive() {
             });
     }, 10 * 60 * 1000);
 }
-startKeepAlive();
+//startKeepAlive();
 module.exports = app;

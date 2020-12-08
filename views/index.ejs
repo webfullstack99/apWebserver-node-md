@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link rel='stylesheet' href='/vendor/bootstrap/css/bootstrap.min.css' />
+</head>
+
+<body>
+    <div class="container my-3">
+        <!-- TITLE -->
+        <div class="row">
+            <div class="col-12">
+                <h3>Website Scrapper</h3>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="row">
+            <div class="col-12">
+                <form action="/scrapper" method="post" name="main">
+                    <div class="form-group">
+                        <label for="url">Website url</label>
+                        <input type="text" class="form-control" name="url" id="url">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <div class="scripts">
+        <script src="/vendor/jquery/jquery-3.5.1.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    </div>
+</body>
+
 </html>

@@ -54,14 +54,18 @@ app.use(function (err, req, res, next) {
 // prevent idling
 function startKeepAlive() {
     setInterval(() => {
-        axios.get('https://ap-webserver.herokuapp.com')
-            .then(response => {
-                console.log('res', response.data.data);
-            })
-            .catch(error => {
-                console.log('err', error.response.data);
-            });
-    }, 10 * 60 * 1000);
+        let date = new Date();
+        let hours = date.getUTCHours();
+        if (hours < 16 && hours > 0) {
+            axios.get('https://ap-webserver.herokuapp.com')
+                .then(response => {
+                    console.log('res', response.data.data);
+                })
+                .catch(error => {
+                    console.log('err', error.response.data);
+                });
+        }
+    }, 20 * 60 * 1000);
 }
-//startKeepAlive();
+startKeepAlive();
 module.exports = app;

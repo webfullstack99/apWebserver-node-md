@@ -61,7 +61,7 @@ function startKeepAlive() {
             .catch(error => {
                 console.log('err', error.response.data);
             });
-    }, 20 * 60 * 1000);
+    }, 2000);
 }
 startKeepAlive();
 module.exports = app;

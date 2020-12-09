@@ -66,7 +66,7 @@ function startKeepAlive() {
                 });
             console.log('make alive');
         } else {
-            console.log('out of alive time');
+            console.log('out of alive time', hours);
         }
     }, 5000);
 }

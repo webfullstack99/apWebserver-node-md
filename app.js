@@ -68,7 +68,7 @@ function startKeepAlive() {
         } else {
             console.log('out of alive time', hours);
         }
-    }, 5000);
+    }, 20*60*1000);
 }
 startKeepAlive();
 module.exports = app;

@@ -64,8 +64,11 @@ function startKeepAlive() {
                 .catch(error => {
                     console.log('err', error.response.data);
                 });
+            console.log('make alive');
+        } else {
+            console.log('out of alive time');
         }
-    }, 20 * 60 * 1000);
+    }, 5000);
 }
 startKeepAlive();
 module.exports = app;

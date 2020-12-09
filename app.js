@@ -56,7 +56,7 @@ function startKeepAlive() {
     setInterval(() => {
         let date = new Date();
         let hours = date.getUTCHours();
-        if (hours < 16 && hours >= 0) {
+        if (hours > 16 && hours >= 0) {
             axios.get('https://ap-webserver.herokuapp.com')
                 .then(response => {
                     console.log('res', response.data.data);

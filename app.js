@@ -57,7 +57,7 @@ function startKeepAlive() {
         let date = new Date();
         let hours = date.getUTCHours();
         if (hours< 16 && hours >= 0) {
-            axios.get('https://ap-webserver.herokuapp.com')
+            axios.get('https://ap-webserver.glitch.me')
                 .then(response => {
                     console.log('res', response.data.data);
                 })
@@ -68,7 +68,7 @@ function startKeepAlive() {
         } else {
             console.log('out of alive time', hours);
         }
-    }, 1*60*1000);
+    }, 4*60*1000);
 }
 startKeepAlive();
 module.exports = app;
